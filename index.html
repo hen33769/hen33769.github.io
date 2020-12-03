@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>学习记录</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.290e9ffc.css" as="style"><link rel="preload" href="/assets/js/app.e281e551.js" as="script"><link rel="preload" href="/assets/js/2.e052193c.js" as="script"><link rel="preload" href="/assets/js/7.c1ce6677.js" as="script"><link rel="prefetch" href="/assets/js/3.371f9280.js"><link rel="prefetch" href="/assets/js/4.d1ae9c7a.js"><link rel="prefetch" href="/assets/js/5.649846ba.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.290e9ffc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" aria-current="page" class="home-link router-link-exact-active router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="学习记录"><a href="#学习记录" class="header-anchor">#</a> 学习记录</h1> <ul><li><a href="#%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95">学习记录</a> <ul><li><a href="#htmlcss">html、css</a> <ul><li><a href="#css%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7">css选择器优先级</a></li> <li><a href="#css%E6%94%BE%E5%9C%A8%E5%A4%B4%E9%83%A8%E5%92%8C%E5%B0%BE%E9%83%A8%E6%9C%89%E4%BB%80%E4%B9%88%E5%B7%AE%E5%88%AB">css放在头部和尾部有什么差别</a></li></ul></li> <li><a href="#js">js</a></li> <li><a href="#%E7%AE%97%E6%B3%95">算法</a></li> <li><a href="#%E6%A1%86%E6%9E%B6">框架</a></li> <li><a href="#%E7%BD%91%E9%A1%B5">网页</a></li> <li><a href="#other">Other</a></li></ul></li></ul> <h2 id="html、css"><a href="#html、css" class="header-anchor">#</a> html、css</h2> <h3 id="css选择器优先级"><a href="#css选择器优先级" class="header-anchor">#</a> css选择器优先级</h3> <p>!important &gt; 行内样式 &gt; ID选择器 &gt; 类选择器 &gt; 标签 &gt; 通配符</p> <ul><li>全局选择器（通配符*）</li> <li>标签选择器（body， div， p， ul）</li> <li>类选择器（.class）</li> <li>ID选择器（#app）</li></ul> <h3 id="css放在头部和尾部有什么差别"><a href="#css放在头部和尾部有什么差别" class="header-anchor">#</a> css放在头部和尾部有什么差别</h3> <p><strong>href</strong>和<strong>src</strong>的区别
+一般加载CSS用<strong>href</strong>，并放在头部；加载script用<strong>src</strong>放在<em>body</em>内的下方</p> <blockquote><ul><li><strong>href</strong>
+是hypertext reference的缩写，表示超文本引用，用来建立当前元素和文档间的链接。常用的有<em>link</em>， <em>a</em>。
+当CSS使用<strong>href</strong>引用，浏览器会识别该文档CSS并行下载，不会停止对当前文档的加载。</li> <li><strong>src</strong>
+是source的缩写，src指向的内容会嵌入到文档中当前标签的位置。常用的有<em>img</em>， <em>script</em>， <em>iframe</em>。
+当script使用<strong>src</strong>引用，浏览器解析到该元素时会停止对文档的渲染，直到该资源加载完成。这也是将script放底部而不是头部的原因。</li></ul></blockquote> <p>把CSS放头部，Script放底部的原因：</p> <blockquote><ul><li><p>CSS放头部
+在加载html生成DOM tree时，就可以同时对DOM tree进行渲染。
+这样可以防止闪跳，白屏或者布局混乱。</p></li> <li><p>JavaScript放底部
+JavaScript可能会改变DOM tree的结构，所以需要一个稳定的DOM tree。
+JavaScript加载后会立即执行，同时会阻塞后面的资源加载。（JavaScript加载和执行的特点）
+*ps：*若要放在头部可</p></li></ul> <blockquote><ul><li><strong>defer</strong></li></ul> <p>*在DOM渲染的同时加载脚本，但是在文档就绪后再去执行，<strong>而且是按照文件先后顺序依次执行</strong>。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script src=&quot;./index.js&quot; defer&gt;&lt;/script&gt;
+</code></pre></div><ul><li><strong>async</strong></li></ul> <p>*允许在下载脚本的同时进行对DOM的渲染。但是它将在下载后尽快执行（即JS引擎空闲了立马执行,操作DOM的脚本就不适用async）</p> <p>*不能保证脚本按顺序执行（这与defer不同）</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script src=&quot;./index.js&quot; async&gt;&lt;/script&gt;
+</code></pre></div></blockquote></blockquote> <h2 id="js"><a href="#js" class="header-anchor">#</a> js</h2> <h2 id="算法"><a href="#算法" class="header-anchor">#</a> 算法</h2> <h2 id="框架"><a href="#框架" class="header-anchor">#</a> 框架</h2> <h2 id="网页"><a href="#网页" class="header-anchor">#</a> 网页</h2> <h2 id="other"><a href="#other" class="header-anchor">#</a> Other</h2></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e281e551.js" defer></script><script src="/assets/js/2.e052193c.js" defer></script><script src="/assets/js/7.c1ce6677.js" defer></script>
+  </body>
+</html>
